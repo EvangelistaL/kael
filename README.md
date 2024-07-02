@@ -13,9 +13,9 @@ mvn clean install
 ## Set the environment variables with your SMTP server config
 
 ```bash
-export EMAIL_HOST= #your.smpt.email.host
+export EMAIL_HOST= #your.smtp.email.host
 
-export EMAIL_PORT= #smtp port
+export EMAIL_PORT= #smtp server port
 
 export EMAIL_USERNAME= #your email username
 

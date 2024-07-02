@@ -31,7 +31,8 @@ curl --location 'localhost:8080/api/send-email' \
         "to": "test@gmail.com",
         "subject": "test",
         "filePathToAttach": "C:/file-path",
-        "body": "Test"
+        "body": "Test",
+        "archiveIsOnWSL": false
     }
 ]'
 ```

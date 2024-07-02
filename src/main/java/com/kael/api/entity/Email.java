@@ -18,4 +18,6 @@ public class Email implements Serializable {
 
     private String body;
 
+    private boolean archiveIsOnWSL;
+
 }

@@ -6,7 +6,6 @@ import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -32,9 +31,16 @@ public class DefaultSendEmail implements SendEmail {
 
     private void sendEmail(Email email){
         MimeMessage message = javaMailSender.createMimeMessage();
-        FileSystemResource file = getAttachment(email.getFilePathToAttach());
+        FileSystemResource file = getAttachment(convertPathToWSL(email.getFilePathToAttach(), email.isArchiveIsOnWSL()));
         buildingEmail(email, message, file);
         javaMailSender.send(message);
+    }
+
+    private String convertPathToWSL(String filePath, boolean archiveIsInWSL) {
+        if (archiveIsInWSL){
+            return filePath.replace("C:", "/mnt/c").replace("\\", "/");
+        }
+        return filePath;
     }
 
     private FileSystemResource getAttachment(String filePath){

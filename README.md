@@ -28,10 +28,10 @@ curl --location 'localhost:8080/api/send-email' \
 --header 'Content-Type: application/json' \
 --data-raw '[
     {
-        "to": "lukasevangelistasna@gmail.com",
-        "subject": "teste",
-        "filePathToAttach": "C:/Users/Lucas/Downloads/cv-lucas-evangelista.pdf",
-        "body": "Teste"
+        "to": "test@gmail.com",
+        "subject": "test",
+        "filePathToAttach": "C:/file-path",
+        "body": "Test"
     }
 ]'
 ```
